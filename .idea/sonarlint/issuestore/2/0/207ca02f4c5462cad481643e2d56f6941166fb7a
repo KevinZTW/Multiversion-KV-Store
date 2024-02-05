@@ -1,0 +1,30 @@
+
+w
+java:S2293Ã"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›…8íÙŸ×1
+R
+java:S1066œ"/Merge this if statement with the enclosing one.(¯´¤ùøÿÿÿÿ8îÙŸ×1
+|
+java:S1488“"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~8îÙŸ×1
+p	java:S1160"ORename this field "val_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã”©İşÿÿÿÿ8–Öù×1
+k	java:S116J"ORename this field "key_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µÕøé8–Öù×1
+v	java:S116U"URename this field "completed_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èŞ‹…şÿÿÿÿ8´ÚŸ×1
+z
+java:S4144Ç"cUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 675.(”åˆ
+D
+java:S1125s"'Remove the unnecessary boolean literal.(­˜Ûş8ºÚŸ×1
+E
+java:S1125‡"'Remove the unnecessary boolean literal.(­˜Ûş8ºÚŸ×1
+^
+java:S1126£"AReplace this if-then-else statement by a single return statement.(ûÿ½%8¼ÚŸ×1
+q	java:S116Ö"ORename this field "val_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã”©İşÿÿÿÿ8¿ÚŸ×1
+s	java:S116Ø"VRename this field "valBuilder_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ğ¬´8¿ÚŸ×1
+l	java:S116Í"ORename this field "key_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë•ÎÃ8¿ÚŸ×1
+w	java:S116ï"URename this field "completed_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èŞ‹…şÿÿÿÿ8¿ÚŸ×1
+v
+java:S2975ç"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ8ÂÚŸ×1
+k
+java:S6201ˆ"HReplace this instanceof check and cast with 'instanceof Version version'(ø÷§Üıÿÿÿÿ8ÃÚŸ×1
+E
+java:S1125˜"'Remove the unnecessary boolean literal.(’ÇÍõ8ÄÚŸ×1
+^	java:S125Ì"<This block of commented-out lines of code should be removed.(““ùûÿÿÿÿ8ÆÚŸ×1
+Y	java:S125Í"<This block of commented-out lines of code should be removed.(¯Ë¶‡8ÆÚŸ×1
