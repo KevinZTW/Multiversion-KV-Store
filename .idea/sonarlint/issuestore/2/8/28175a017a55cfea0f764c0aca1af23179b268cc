@@ -1,6 +1,0 @@
-
-
-java:S1130
-"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Şıÿÿÿÿ8¯€™¦×1
-G	java:S106-"+Replace this use of System.out by a logger.(Ş¯¸8×˜û¥×1
-F	java:S1063"+Replace this use of System.out by a logger.(´°Îk8Ûš¦×1

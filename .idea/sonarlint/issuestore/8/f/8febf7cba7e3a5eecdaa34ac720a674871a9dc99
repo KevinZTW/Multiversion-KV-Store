@@ -1,9 +1,0 @@
-
-b
-java:S2095"EUse try-with-resources or close this "Options" in a "finally" clause.(åäÙæ8Îññ×1
-c
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(ÌŠç¹úÿÿÿÿ8Òññ×1
-u
-java:S2139"XEither log this exception and handle it, or rethrow it with some contextual information.(©í‰×8Ôññ×1
-
-java:S1130/"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(æÔ«÷şÿÿÿÿ8Õññ×1
