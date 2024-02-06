@@ -1,21 +1,19 @@
-package net.kevinztw.playground.storage;
+package net.kevinztw.storage.storage;
 
-import com.google.common.primitives.Bytes;
 import java.util.ArrayList;
 import java.util.List;
-import net.kevinztw.playground.proto.PutRequest;
-import net.kevinztw.playground.proto.Version;
+import net.kevinztw.storage.proto.PutRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class RocksDBMultiVersionStorage implements MultiVersionStorage {
 
   public static final Logger LOGGER = LoggerFactory.getLogger(RocksDBMultiVersionStorage.class);
-  private KeyIndexManager keyIndexManager = new KeyIndexManager();
-  private RocksDBStorage kvBackend = new RocksDBStorage();
+  private final RocksDBStorage kvBackend = new RocksDBStorage();
+  private final KeyIndexManager keyIndexManager = new KeyIndexManager();
 
   private byte[] getStorageKey(Version version) {
-    return Bytes.concat(version.getKey().toByteArray(), version.getVal().toByteArray());
+    return version.toIndexKey();
   }
 
   public void initialize() {
@@ -38,8 +36,7 @@ public class RocksDBMultiVersionStorage implements MultiVersionStorage {
   public byte[] get(byte[] key) {
     Version version = keyIndexManager.getLatestVersion(key);
     try {
-      byte[] value = kvBackend.get(getStorageKey(version));
-      return value;
+      return kvBackend.get(getStorageKey(version));
     } catch (Exception e) {
       LOGGER.error("Error getting key: {}, exception: {}", key, e.getMessage());
     }
@@ -67,7 +64,6 @@ public class RocksDBMultiVersionStorage implements MultiVersionStorage {
     byte[] key = request.getKey().toByteArray();
     byte[] value = request.getValue().toByteArray();
     Version version = keyIndexManager.addVersion(key);
-    keyIndexManager.complete(version);
 
     try {
       kvBackend.put(getStorageKey(version), value);

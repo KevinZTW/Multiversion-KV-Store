@@ -1,4 +1,4 @@
-package net.kevinztw.playground.storage;
+package net.kevinztw.storage.storage;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class RocksDBStorage {
     }
   }
 
-  public void close() throws IOException {
+  public void close() {
     db.close();
   }
 

@@ -1,7 +1,7 @@
-package net.kevinztw.playground.storage;
+package net.kevinztw.storage.storage;
 
 import java.util.List;
-import net.kevinztw.playground.proto.PutRequest;
+import net.kevinztw.storage.proto.PutRequest;
 
 public interface MultiVersionStorage {
   // block until store to stable storage

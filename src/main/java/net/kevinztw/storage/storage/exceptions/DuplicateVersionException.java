@@ -1,4 +1,4 @@
-package net.kevinztw.playground.storage.exceptions;
+package net.kevinztw.storage.storage.exceptions;
 
 public class DuplicateVersionException extends RuntimeException {
 

@@ -1,10 +1,10 @@
-package net.kevinztw.playground;
+package net.kevinztw.storage;
 
 import com.google.protobuf.ByteString;
 import java.util.List;
-import net.kevinztw.playground.proto.PutRequest;
-import net.kevinztw.playground.storage.MultiVersionStorage;
-import net.kevinztw.playground.storage.RocksDBMultiVersionStorage;
+import net.kevinztw.storage.proto.PutRequest;
+import net.kevinztw.storage.storage.MultiVersionStorage;
+import net.kevinztw.storage.storage.RocksDBMultiVersionStorage;
 
 public class Main {
   public static void main(String[] args) throws Exception {
@@ -24,17 +24,16 @@ public class Main {
             .build();
 
     PutRequest request3 =
-            PutRequest.newBuilder()
-                    .setKey(ByteString.copyFrom("key2".getBytes()))
-                    .setValue(ByteString.copyFrom("value_version_1".getBytes()))
-                    .build();
+        PutRequest.newBuilder()
+            .setKey(ByteString.copyFrom("key2".getBytes()))
+            .setValue(ByteString.copyFrom("value_version_1".getBytes()))
+            .build();
 
     PutRequest request4 =
-            PutRequest.newBuilder()
-                    .setKey(ByteString.copyFrom("key1".getBytes()))
-                    .setValue(ByteString.copyFrom("value_version_3".getBytes()))
-                    .build();
-
+        PutRequest.newBuilder()
+            .setKey(ByteString.copyFrom("key1".getBytes()))
+            .setValue(ByteString.copyFrom("value_version_3".getBytes()))
+            .build();
 
     store.put(request1);
     store.put(request2);
@@ -44,8 +43,7 @@ public class Main {
     byte[] value = store.get("key1".getBytes());
     System.out.println(new String(value));
 
-    List<byte[]> values =
-        store.getAllVersions(ByteString.copyFrom("key1".getBytes()).toByteArray());
+    List<byte[]> values = store.getAllVersions("key1".getBytes());
 
     for (byte[] v : values) {
       System.out.println(new String(v));
