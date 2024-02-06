@@ -46,7 +46,9 @@ public class Main {
     List<byte[]> values = store.getAllVersions("key1".getBytes());
 
     for (byte[] v : values) {
-      System.out.println(new String(v));
+      if (v != null) {
+        System.out.println(new String(v));
+      }
     }
 
     store.close();

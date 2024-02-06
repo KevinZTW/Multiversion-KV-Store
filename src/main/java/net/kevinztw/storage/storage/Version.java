@@ -15,6 +15,13 @@ public class Version {
   }
 
   public byte[] toIndexKey() {
-    return Bytes.concat(key, start.toString().getBytes(), end.toString().getBytes());
+    // the end time would be modified when the next version is added
+    // there should have no two versions with the same start time since we check that in the
+    // beginning of the put operation
+    return Bytes.concat(key, start.toString().getBytes());
+  }
+
+  public String toString() {
+    return String.format("Key: %s, Start: %s, End: %s", new String(key), start, end);
   }
 }
