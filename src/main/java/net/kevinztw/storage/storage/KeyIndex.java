@@ -45,7 +45,7 @@ public class KeyIndex {
 
   public void remove() {
     lock.writeLock().lock();
-    if (!generations.isEmpty()) {
+    if (!generations.getLast().isEmpty()) {
       generations.add(new Generation(key));
     }
     lock.writeLock().unlock();

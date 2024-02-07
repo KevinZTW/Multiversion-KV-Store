@@ -61,4 +61,11 @@ public class Generation {
     lock.readLock().unlock();
     return res;
   }
+
+  public boolean isEmpty() {
+    lock.readLock().lock();
+    boolean res = versionMap.isEmpty();
+    lock.readLock().unlock();
+    return res;
+  }
 }

@@ -73,4 +73,20 @@ class RocksDBMultiVersionStorageTest {
       Assertions.assertArrayEquals(expected.get(i), result.get(i));
     }
   }
+
+  @Test
+  void testRemove() {
+    byte[] key = "key1".getBytes();
+    store.remove(key);
+    store.remove(key);
+    Assertions.assertEquals(0, store.getAllVersions(key).size());
+    store.put(key, "value_version_1".getBytes());
+    store.remove(key);
+    Assertions.assertEquals(0, store.getAllVersions(key).size());
+    store.put(key, "value_version_2".getBytes());
+    store.remove(key);
+    Assertions.assertEquals(0, store.getAllVersions(key).size());
+    store.put(key, "value_version_3".getBytes());
+    Assertions.assertEquals(1, store.getAllVersions(key).size());
+  }
 }
