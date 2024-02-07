@@ -38,4 +38,9 @@ public class KeyIndexManager {
     KeyIndex index = getKeyIndex(key);
     return index.getAllVersions(now);
   }
+
+  public void remove(byte[] key) {
+    KeyIndex index = getKeyIndex(key);
+    index.remove();
+  }
 }

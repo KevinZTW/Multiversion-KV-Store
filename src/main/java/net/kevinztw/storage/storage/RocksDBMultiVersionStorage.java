@@ -2,7 +2,6 @@ package net.kevinztw.storage.storage;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.kevinztw.storage.proto.PutRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +43,11 @@ public class RocksDBMultiVersionStorage implements MultiVersionStorage {
   }
 
   @Override
+  public void remove(byte[] key) {
+    keyIndexManager.remove(key);
+  }
+
+  @Override
   public List<byte[]> getAllVersions(byte[] key) {
     List<Version> versions = keyIndexManager.getAllVersions(key);
     List<byte[]> result = new ArrayList<>();
@@ -60,11 +64,8 @@ public class RocksDBMultiVersionStorage implements MultiVersionStorage {
   }
 
   @Override
-  public void put(PutRequest request) {
-    byte[] key = request.getKey().toByteArray();
-    byte[] value = request.getValue().toByteArray();
+  public void put(byte[] key, byte[] value) {
     Version version = keyIndexManager.addVersion(key);
-
     try {
       kvBackend.put(getStorageKey(version), value);
     } catch (Exception e) {

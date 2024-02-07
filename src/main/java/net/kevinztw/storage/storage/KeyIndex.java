@@ -42,4 +42,12 @@ public class KeyIndex {
     lock.readLock().unlock();
     return res;
   }
+
+  public void remove() {
+    lock.writeLock().lock();
+    if (!generations.isEmpty()) {
+      generations.add(new Generation(key));
+    }
+    lock.writeLock().unlock();
+  }
 }
